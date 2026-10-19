@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="color-scheme" content="dark">
+  <meta name="theme-color" content="#090B10">
+  <meta name="description" content="LIFE XP turns everyday activities into an RPG leveling system. Everything is saved in your browser.">
+  <title>LIFE XP - Level Up Your Real Life</title>
+  <!-- A tiny emoji favicon so the browser tab has an icon without needing an image file -->
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%E2%9A%94%EF%B8%8F%3C/text%3E%3C/svg%3E">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Lets keyboard users jump past the navigation -->
+  <a class="skip-link" href="#view">Skip to main content</a>
+
+  <noscript>
+    <p class="noscript">LIFE XP needs JavaScript to run. Please enable JavaScript in your browser and reload the page.</p>
+  </noscript>
+
+  <div class="app">
+
+    <!-- ===== HEADER: logo, level, rank, total XP, settings shortcut ===== -->
+    <header class="app-header">
+      <a class="logo" href="#dashboard" aria-label="LIFE XP - go to dashboard">
+        <span class="logo-mark" aria-hidden="true">⚔️</span>
+        <span class="logo-text">LIFE <b>XP</b></span>
+      </a>
+
+      <div class="hdr-stats">
+        <span class="chip chip-level" id="hdr-level" title="Player level">LV 1</span>
+        <span class="chip chip-rank" id="hdr-rank" title="Player rank">
+          <span id="hdr-rank-icon" aria-hidden="true">🌱</span>
+          <span id="hdr-rank-name" class="hide-xs">Beginner</span>
+        </span>
+        <span class="chip chip-xp" id="hdr-xp" title="Total lifetime XP">0 XP</span>
+      </div>
+
+      <a class="icon-btn" href="#settings" id="hdr-settings" aria-label="Open settings" title="Settings">⚙️</a>
+    </header>
+
+    <div class="layout">
+
+      <!-- ===== SIDEBAR NAVIGATION (desktop and large tablets) ===== -->
+      <nav class="sidebar" aria-label="Main navigation">
+        <a class="nav-link" href="#dashboard" data-route="dashboard"><span class="nav-icon" aria-hidden="true">🏠</span><span>Dashboard</span></a>
+        <a class="nav-link" href="#quests" data-route="quests"><span class="nav-icon" aria-hidden="true">📜</span><span>Quests</span></a>
+        <a class="nav-link" href="#stats" data-route="stats"><span class="nav-icon" aria-hidden="true">📊</span><span>Stats</span></a>
+        <a class="nav-link" href="#achievements" data-route="achievements"><span class="nav-icon" aria-hidden="true">🏆</span><span>Achievements</span></a>
+        <a class="nav-link" href="#rewards" data-route="rewards"><span class="nav-icon" aria-hidden="true">🎁</span><span>Rewards</span></a>
+        <a class="nav-link" href="#settings" data-route="settings"><span class="nav-icon" aria-hidden="true">⚙️</span><span>Settings</span></a>
+        <p class="sidebar-note">Progress is saved automatically in this browser.</p>
+      </nav>
+
+      <!-- ===== MAIN VIEW: script.js draws the active section in here ===== -->
+      <main id="view" class="view" tabindex="-1"></main>
+    </div>
+
+    <!-- ===== BOTTOM NAVIGATION (phones and small tablets) ===== -->
+    <nav class="bottom-nav" aria-label="Main navigation (compact)">
+      <a class="nav-link" href="#dashboard" data-route="dashboard" aria-label="Dashboard"><span class="nav-icon" aria-hidden="true">🏠</span><span class="nav-short">Home</span></a>
+      <a class="nav-link" href="#quests" data-route="quests" aria-label="Quests"><span class="nav-icon" aria-hidden="true">📜</span><span class="nav-short">Quests</span></a>
+      <a class="nav-link" href="#stats" data-route="stats" aria-label="Stats"><span class="nav-icon" aria-hidden="true">📊</span><span class="nav-short">Stats</span></a>
+      <a class="nav-link" href="#achievements" data-route="achievements" aria-label="Achievements"><span class="nav-icon" aria-hidden="true">🏆</span><span class="nav-short">Awards</span></a>
+      <a class="nav-link" href="#rewards" data-route="rewards" aria-label="Rewards"><span class="nav-icon" aria-hidden="true">🎁</span><span class="nav-short">Rewards</span></a>
+      <a class="nav-link" href="#settings" data-route="settings" aria-label="Settings"><span class="nav-icon" aria-hidden="true">⚙️</span><span class="nav-short">Settings</span></a>
+    </nav>
+  </div>
+
+  <!-- Toast notifications appear here -->
+  <div id="toasts" class="toasts" aria-live="polite" aria-atomic="false"></div>
+
+  <!-- Dialogs (forms, confirmations, level-up overlay) appear here -->
+  <div id="modal-root"></div>
+
+  <script src="script.js"></script>
+</body>
+</html>
